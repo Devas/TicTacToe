@@ -86,23 +86,24 @@ public abstract class Board implements World2D {
      * Otherwise returns status NONEWON (nobody has won yet)
      */
     public TurnStatus checkAll(String value) {
-        if (checkRows(value).equals(TurnStatus.WON))
-            return TurnStatus.WON;
-
-        if (checkColumns(value).equals(TurnStatus.WON))
-            return TurnStatus.WON;
-
-        if (checkDiagonals(value).equals(TurnStatus.WON))
-            return TurnStatus.WON;
-
-        if (checkAntiDiagonals(value).equals(TurnStatus.WON))
-            return TurnStatus.WON;
-
+        try {
+            if (checkRows(value).equals(TurnStatus.WON))
+                return TurnStatus.WON;
+            if (checkColumns(value).equals(TurnStatus.WON))
+                return TurnStatus.WON;
+            if (checkDiagonals(value).equals(TurnStatus.WON))
+                return TurnStatus.WON;
+            if (checkAntiDiagonals(value).equals(TurnStatus.WON))
+                return TurnStatus.WON;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.err.println("Array out of bounds");
+            e.printStackTrace();
+        }
         return TurnStatus.NONEWON;
     }
 
     @SuppressWarnings("Duplicates")
-    private TurnStatus checkRows(String value) {
+    private TurnStatus checkRows(String value) throws ArrayIndexOutOfBoundsException {
         List<Position2D> positions = new ArrayList<>();
         for (int y = 0; y < sixeY; y++) {
             positions.clear();
@@ -122,7 +123,7 @@ public abstract class Board implements World2D {
     }
 
     @SuppressWarnings("Duplicates")
-    private TurnStatus checkColumns(String value) {
+    private TurnStatus checkColumns(String value) throws ArrayIndexOutOfBoundsException {
         List<Position2D> positions = new ArrayList<>();
         for (int x = 0; x < sixeX; x++) {
             positions.clear();
@@ -142,7 +143,7 @@ public abstract class Board implements World2D {
     }
 
     @SuppressWarnings("Duplicates")
-    private TurnStatus checkDiagonals(String value) {
+    private TurnStatus checkDiagonals(String value) throws ArrayIndexOutOfBoundsException {
         ArrayList<ArrayList<Position2D>> diagonals = new ArrayList<>();
         int index = 0;
 
@@ -182,7 +183,7 @@ public abstract class Board implements World2D {
     }
 
     @SuppressWarnings("Duplicates")
-    private TurnStatus checkAntiDiagonals(String value) {
+    private TurnStatus checkAntiDiagonals(String value) throws ArrayIndexOutOfBoundsException {
         ArrayList<ArrayList<Position2D>> diagonals = new ArrayList<>();
         int index = 0;
 

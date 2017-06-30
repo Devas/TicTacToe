@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class LocalizationManager {
 
     private final String resourcesPath = "src/main/resources/";
-    private String localizationName;
+    private String localizationName = "ENG";
     private Properties localizationProperties = new Properties();
 
     /**

@@ -1,6 +1,6 @@
-package io.github.devas.api;
+package io.github.devas.game;
 
-public interface Result {
+interface Result {
 
     int getScore();
 

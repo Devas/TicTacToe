@@ -1,24 +1,21 @@
 package io.github.devas.game;
 
-import io.github.devas.api.Move;
-import io.github.devas.api.Player;
 import io.github.devas.managers.ConfigurationManager;
 import io.github.devas.managers.LocalizationManager;
-import io.github.devas.models.*;
 
 import java.util.Scanner;
 
 /**
  * If player wins the x or o is upper-cased to X or O
  */
-public class TicTacToeGame extends Game1vs1 {
+class TicTacToeGame extends Game1vs1 {
 
     private ConfigurationManager configManager;
     private LocalizationManager localizationManager;
     private ConsoleBoard board;
     private static int turn = 1;
 
-    public TicTacToeGame(Player playerA, Player playerB, int sizeX, int sizeY, ConfigurationManager conf, LocalizationManager loc) {
+    TicTacToeGame(Player playerA, Player playerB, int sizeX, int sizeY, ConfigurationManager conf, LocalizationManager loc) {
         super(playerA, playerB);
         configManager = conf;
         localizationManager = loc;
@@ -26,7 +23,7 @@ public class TicTacToeGame extends Game1vs1 {
     }
 
     @Override
-    public void start() {
+    public void startGame() {
         while (!isFinished()) {
             runSingleTurn();
         }

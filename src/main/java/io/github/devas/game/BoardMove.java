@@ -1,24 +1,22 @@
-package io.github.devas.models;
-
-import io.github.devas.api.Move;
+package io.github.devas.game;
 
 /**
  * Represents a single move on board.
  * Additionally we can define here other activities connected with single move.
  */
-public class BoardMove implements Move {
+class BoardMove implements Move {
 
     private Position2D position;
 
-    public BoardMove(Position2D position) {
+    BoardMove(Position2D position) {
         this.position = position;
     }
 
-    public Position2D getPosition() {
+    Position2D getPosition() {
         return position;
     }
 
-    public void setPosition(Position2D position) {
+    void setPosition(Position2D position) {
         this.position = position;
     }
 

@@ -1,8 +1,8 @@
-package io.github.devas.api;
+package io.github.devas.game;
 
 import java.util.List;
 
-public interface Player {
+interface Player {
 
     String getName();
 

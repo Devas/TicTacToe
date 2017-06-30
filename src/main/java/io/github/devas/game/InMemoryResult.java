@@ -1,19 +1,17 @@
-package io.github.devas.models;
-
-import io.github.devas.api.Result;
+package io.github.devas.game;
 
 /**
  * Represents results stored as objects
  */
-public class InMemoryResult implements Result, Comparable<InMemoryResult> {
+class InMemoryResult implements Result, Comparable<InMemoryResult> {
 
     private int score;
 
-    public InMemoryResult() {
+    InMemoryResult() {
         this.score = 0;
     }
 
-    public InMemoryResult(int score) {
+    InMemoryResult(int score) {
         this.score = score;
     }
 

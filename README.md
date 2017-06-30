@@ -4,7 +4,7 @@
 - Adding git support DONE
 - Adding Maven support DONE
 - Adding README.md
-- What does DONE
+- What the game does DONE
 - How to run
 - List of tests
 - Adding .gitignore DONE
@@ -49,3 +49,5 @@
 ### Running
 - Go to: TicTacToeMvn\target\classes\
 - Run: java io.github.devas.game.Main
+
+### List of tests

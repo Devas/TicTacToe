@@ -10,7 +10,7 @@ public class ConfigurationManager {
 
     private final String configFileName = "src/main/resources/config.properties";
     private Properties configProperties = new Properties();
-    public PrintStream printStream = System.out;
+    private PrintStream printStream = System.out;
 
     public ConfigurationManager() {
         loadConfigProperties();

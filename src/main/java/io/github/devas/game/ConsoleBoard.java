@@ -1,12 +1,12 @@
-package io.github.devas.models;
+package io.github.devas.game;
 
 import io.github.devas.managers.ConfigurationManager;
 
-public class ConsoleBoard extends Board {
+class ConsoleBoard extends Board {
 
     private ConfigurationManager configManager;
 
-    public ConsoleBoard(int sixeX, int sixeY, ConfigurationManager conf) {
+    ConsoleBoard(int sixeX, int sixeY, ConfigurationManager conf) {
         super(sixeX, sixeY);
         configManager = conf;
     }
@@ -26,7 +26,7 @@ public class ConsoleBoard extends Board {
     /**
      * Only for tests
      */
-    public void drawDiagonals() {
+    void drawDiagonals() {
         int rows = sixeX;
         int cols = sixeY;
 

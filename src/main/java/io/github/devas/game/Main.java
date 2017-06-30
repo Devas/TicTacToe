@@ -2,12 +2,10 @@ package io.github.devas.game;
 
 import io.github.devas.managers.ConfigurationManager;
 import io.github.devas.managers.LocalizationManager;
-import io.github.devas.models.HumanPlayer;
-import io.github.devas.models.Position2D;
 
 import java.util.Scanner;
 
-public class Main {
+class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
@@ -46,7 +44,7 @@ public class Main {
         }
 
         while (!game.isFinished()) {
-            game.start();
+            game.startGame();
         }
     }
 

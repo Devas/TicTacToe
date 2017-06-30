@@ -74,5 +74,4 @@ public class BoardTests {
         assertEquals(board.checkAll(x), TurnStatus.WON);
     }
 
-
 }

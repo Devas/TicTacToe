@@ -3,22 +3,12 @@
 ### Project tasks
 - Adding git support DONE
 - Adding Maven support DONE
-- Adding README.md
+- Adding README.md DOEN
 - What the game does DONE
-- How to run
+- How to run DONE
 - List of tests
 - Adding .gitignore DONE
 - CRC
-
-### Features
-- Any size of board DONE
-- Asking who starts DONE
-- Multiple games DONE
-- Quit whenever DONE
-- Names for players DONE
-- Win 3 points, draw 1 point DONE
-- Win if a player hit specified number or number equaling to shorter dimension
-- Exceptions
 - At least 60% test coverage
 
 ### Functional requirements
@@ -36,7 +26,7 @@
 - Winning is announced in a message: Wygrywa O. O: 1 X: 0 (numbers are current points). DONE
 - Game is configurable:
     - Board dimensions: 3x3, 4x4, 99x101, etc. (user provides) DONE
-    - Winning condition has variable number of characters: 3, 4, 5, etc. (user provides)
+    - Winning condition has variable number of characters: 3, 4, 5, etc. (user provides) DONE
     - Game messages should have configurable target: console (System.out) or logs (for the sake of this exercise it’s OK to make it System.err), or external printer. DONE
     - before game starts it asks who goes first, O or X DONE
     - We are bi-lingual: Polish and English are fine. In future we want to add more languages: messages are to be read from a file for chosen language. Choosing the language depends on configuration variable. DONE

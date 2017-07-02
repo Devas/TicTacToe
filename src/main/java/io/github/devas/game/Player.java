@@ -18,16 +18,12 @@ interface Player {
 
     Result getResult();
 
-    default void addMove(Move move) {}
+    void addMove(Move move);
 
-    default List<Move> getMoves() {
-        return null;
-    }
+    List<Move> getMoves();
 
-    default void resetMoves() {}
+    void resetMoves();
 
-    default boolean hasMoved(Move move) {
-        return false;
-    }
+    boolean hasMoved(Move move);
 
 }

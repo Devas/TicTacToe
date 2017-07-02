@@ -4,32 +4,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.Scanner;
 
-public class LocalizationManager {
+public class LocalizationManager implements Manager {
 
     private final String resourcesPath = "src/main/resources/";
-    private String localizationName = "ENG";
+    private final String localizationName;
     private Properties localizationProperties = new Properties();
 
-    /**
-     * Add new languages by adding new cases and .properties files
-     */
-    public void askForLocale() {
-        System.out.println("Locale settings");
-        System.out.print("'E' English managers | 'P' Polish managers | Press key: ");
-        Scanner s = new Scanner(System.in);
-        String lang = s.next().toUpperCase();
-        switch (lang) {
-            case "E":
-                localizationName = "ENG";
-                break;
-            case "P":
-                localizationName = "PL";
-                break;
-            default:
-                localizationName = "ENG";
-        }
+    public LocalizationManager(String localizationName) {
+        this.localizationName = localizationName;
     }
 
     public void loadLocalization() {

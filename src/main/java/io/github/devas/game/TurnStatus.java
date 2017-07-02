@@ -1,7 +1,7 @@
 package io.github.devas.game;
 
-enum TurnStatus {
+public enum TurnStatus {
     WON,
-    NONEWON,
+    NONE_WON,
     DRAW
 }

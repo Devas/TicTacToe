@@ -2,9 +2,9 @@ package io.github.devas.game;
 
 abstract class Game1vs1 extends AbstractGame {
 
-    Player playerA;
-    Player playerB;
-    Player currentPlayer;
+    private Player playerA;
+    private Player playerB;
+    private Player currentPlayer;
 
     Game1vs1(Player playerA, Player playerB) {
         this.playerA = playerA;

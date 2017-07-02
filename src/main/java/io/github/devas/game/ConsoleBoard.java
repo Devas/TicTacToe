@@ -2,11 +2,11 @@ package io.github.devas.game;
 
 import io.github.devas.managers.ConfigurationManager;
 
-class ConsoleBoard extends Board {
+public class ConsoleBoard extends Board {
 
     private ConfigurationManager configManager;
 
-    ConsoleBoard(int sixeX, int sixeY, ConfigurationManager conf) {
+    public ConsoleBoard(int sixeX, int sixeY, ConfigurationManager conf) {
         super(sixeX, sixeY);
         configManager = conf;
     }

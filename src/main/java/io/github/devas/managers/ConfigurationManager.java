@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Properties;
 
-public class ConfigurationManager {
+public class ConfigurationManager implements Manager {
 
     private final String configFileName = "src/main/resources/config.properties";
     private Properties configProperties = new Properties();

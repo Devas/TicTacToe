@@ -5,6 +5,11 @@ class Position2D implements Position {
     private int x;
     private int y;
 
+    Position2D() {
+        this.x = 0;
+        this.y = 0;
+    }
+
     Position2D(int x, int y) {
         this.x = x;
         this.y = y;

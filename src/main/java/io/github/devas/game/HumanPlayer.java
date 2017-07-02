@@ -3,7 +3,7 @@ package io.github.devas.game;
 import java.util.ArrayList;
 import java.util.List;
 
-class HumanPlayer implements Player, Comparable<HumanPlayer> {
+public class HumanPlayer implements Player, Comparable<HumanPlayer> {
 
     private String name;
     private String nick;
@@ -12,7 +12,7 @@ class HumanPlayer implements Player, Comparable<HumanPlayer> {
     private Result result = new InMemoryResult();
     private List<Move> moves = new ArrayList<>();
 
-    HumanPlayer(String name, String nick) {
+    public HumanPlayer(String name, String nick) {
         this.name = name;
         this.nick = nick;
     }
@@ -52,7 +52,6 @@ class HumanPlayer implements Player, Comparable<HumanPlayer> {
         return result;
     }
 
-    @Override
     public void addMove(Move move) {
         moves.add(move);
     }

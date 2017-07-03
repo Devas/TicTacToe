@@ -1,6 +1,6 @@
 package io.github.devas.game;
 
-public abstract class AbstractGame implements Game {
+abstract class AbstractGame implements Game {
 
     private boolean finished = false;
 

@@ -9,7 +9,7 @@
 - List of tests
 - Adding .gitignore DONE
 - CRC
-- At least 60% test coverage
+- At least 60% test coverage: 85% classes, 59% method, 52% lines
 
 ### Functional requirements
 - It is "best of three", though I can quit mid-way through. DONE
@@ -41,3 +41,23 @@
 - Run: java io.github.devas.game.Main
 
 ### List of tests
+- DoesTurnStatusTellIfGameIsWonOrNotWon
+- testTwoBoardMovesAreEqual
+- TwoBoardMovesAreNotEqual
+- CalculationOfBoardAreas
+- IfBoardResetsItselfWithDefaultValue
+- IfWholeBoardIsFilledWithSpecifiedString
+- BoardSetValueAndGetValueForPrimitives
+- BoardSetValueAndGetValueForPosition
+- FillingBoardWithAlphabet
+- IsStringWithBoardRepresentationCorrect
+- IsStringWithDiagonalsCorrect
+- DoesGameWinningCount
+- CompareTwoPlayersByName
+- AddingGettingResettingPlayersMoves
+- ArePlayersResultsCorrectlyComputed
+- ArePlayersCorrectlyComparedBasedOnResults
+- IsGameInitiallyNotFinished
+- IsGameFinished
+- IsCurrentPlayerCorrect
+- IsCurrentPlayerCorrectAfterSeveralTurns

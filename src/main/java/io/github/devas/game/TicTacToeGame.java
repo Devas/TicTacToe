@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
  * If player wins the x or o is upper-cased to X or O
  */
-public class TicTacToeGame extends Game1vs1 {
+class TicTacToeGame extends Game1vs1 {
 
     private ConfigurationManager configManager;
     private LocalizationManager localizationManager;
@@ -16,11 +16,11 @@ public class TicTacToeGame extends Game1vs1 {
     private WinnerChecker winnerChecker;
     private static int turn = 1;
 
-    public TicTacToeGame(Player playerA, Player playerB, int sizeX, int sizeY, int marksToWin, ConfigurationManager conf, LocalizationManager loc) {
+    TicTacToeGame(Player playerA, Player playerB, int sizeX, int sizeY, int marksToWin, ConfigurationManager conf, LocalizationManager loc) {
         super(playerA, playerB);
         configManager = conf;
         localizationManager = loc;
-        board = new ConsoleBoard(sizeX, sizeY, configManager);
+        board = new ConsoleBoard(sizeX, sizeY);
         winnerChecker = new WinnerChecker(board, marksToWin);
     }
 
@@ -39,7 +39,7 @@ public class TicTacToeGame extends Game1vs1 {
         getCurrentPlayer().addMove(playersMove);
         board.setValueAt(playersMove.getPosition(), getCurrentPlayer().getNick());
         TurnStatus turnStatus = winnerChecker.checkAll(getCurrentPlayer().getNick());
-        board.draw();
+        configManager.print(board.draw());
         if (turnStatus.equals(TurnStatus.WON)) {
             getCurrentPlayer().incrementGamesWon();
             getCurrentPlayer().getResult().increaseScore(3);

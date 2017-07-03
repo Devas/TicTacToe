@@ -5,6 +5,6 @@ package io.github.devas.game;
  */
 interface World2D extends World {
 
-    void draw();
+    String draw();
 
 }

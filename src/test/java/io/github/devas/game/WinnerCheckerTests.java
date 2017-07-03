@@ -1,10 +1,5 @@
-package io.github.devas;
+package io.github.devas.game;
 
-import io.github.devas.game.Board;
-import io.github.devas.game.ConsoleBoard;
-import io.github.devas.game.TurnStatus;
-import io.github.devas.game.WinnerChecker;
-import io.github.devas.managers.ConfigurationManager;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -12,9 +7,8 @@ import static org.testng.Assert.assertEquals;
 @Test
 public class WinnerCheckerTests {
 
-    public void testWinning() {
-        ConfigurationManager configurationManager = new ConfigurationManager();
-        Board board = new ConsoleBoard(3, 3, configurationManager);
+    public void testDoesTurnStatusTellIfGameIsWonOrNotWon() {
+        Board board = new ConsoleBoard(3, 3);
         WinnerChecker winnerChecker = new WinnerChecker(board, 3);
         String x = "x";
         board.setValueAt(0, 0, x);

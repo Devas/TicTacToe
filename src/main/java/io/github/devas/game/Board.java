@@ -1,6 +1,6 @@
 package io.github.devas.game;
 
-public abstract class Board implements World2D {
+abstract class Board implements World2D {
 
     final int sixeX;
     final int sixeY;
@@ -17,7 +17,7 @@ public abstract class Board implements World2D {
     }
 
     @Override
-    public abstract void draw();
+    public abstract String draw();
 
     int getSixeX() {
         return sixeX;
@@ -27,7 +27,7 @@ public abstract class Board implements World2D {
         return sixeY;
     }
 
-    public int getArea() {
+    int getArea() {
         return area;
     }
 
@@ -35,7 +35,7 @@ public abstract class Board implements World2D {
         return board;
     }
 
-    public String getValueAt(int x, int y) {
+    String getValueAt(int x, int y) {
         return board[x][y];
     }
 
@@ -43,7 +43,7 @@ public abstract class Board implements World2D {
         return board[position.getX()][position.getY()];
     }
 
-    public void setValueAt(int x, int y, String value) {
+    void setValueAt(int x, int y, String value) {
         board[x][y] = value;
     }
 
@@ -51,7 +51,7 @@ public abstract class Board implements World2D {
         board[position.getX()][position.getY()] = value;
     }
 
-    public void setAll(String value) {
+    void setAll(String value) {
         for (int y = 0; y < sixeY; y++) {
             for (int x = 0; x < sixeX; x++) {
                 board[x][y] = value;
@@ -59,14 +59,14 @@ public abstract class Board implements World2D {
         }
     }
 
-    public void reset() {
+    void reset() {
         setAll(FILL_STRING);
     }
 
     /**
      * Only for tests
      */
-    public void setAllWithAlphabet() {
+    void setAllWithAlphabet() {
         char ch = 'a';
         for (int y = 0; y < sixeY; y++) {
             for (int x = 0; x < sixeX; x++, ch++) {

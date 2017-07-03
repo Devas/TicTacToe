@@ -6,12 +6,12 @@ import java.util.List;
 import static io.github.devas.game.TurnStatus.NONE_WON;
 import static io.github.devas.game.TurnStatus.WON;
 
-public class WinnerChecker {
+class WinnerChecker {
 
     private Board board;
     private int marksToWin;
 
-    public WinnerChecker(Board board, int usersMarksToWin) {
+    WinnerChecker(Board board, int usersMarksToWin) {
         this.board = board;
         int minSize = Math.min(board.sixeX, board.sixeY);
         this.marksToWin = Math.min(minSize, usersMarksToWin);
@@ -21,7 +21,7 @@ public class WinnerChecker {
      * If row, column or diagonal is found this method returns status WON (a player won).
      * Otherwise returns status NONE_WON (nobody has won yet)
      */
-    public TurnStatus checkAll(String value) {
+    TurnStatus checkAll(String value) {
         return winnerIn(value, "rows") || winnerIn(value, "cols") || winnerIn(value, "diag1") || winnerIn(value, "diag2") ? WON : NONE_WON;
     }
 

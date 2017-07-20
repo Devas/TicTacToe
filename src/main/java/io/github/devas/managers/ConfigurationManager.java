@@ -21,16 +21,19 @@ public class ConfigurationManager implements Manager {
         return configProperties.get(key).toString();
     }
 
-    public void print(String message) {
+    public String print(String message) {
         printStream.print(message);
+        return message;
     }
 
-    public void println(String message) {
+    public String println(String message) {
         printStream.println(message);
+        return message;
     }
 
-    public void println() {
+    public String println() {
         printStream.println();
+        return "";
     }
 
     private void loadConfigProperties() {

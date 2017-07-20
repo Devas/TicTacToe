@@ -18,7 +18,7 @@ class WinnerChecker {
     }
 
     /**
-     * If row, column or diagonal is found this method returns status WON (a player won).
+     * If row, column or diagonal is found this method returns status WON (net player won).
      * Otherwise returns status NONE_WON (nobody has won yet)
      */
     TurnStatus checkAll(String value) {

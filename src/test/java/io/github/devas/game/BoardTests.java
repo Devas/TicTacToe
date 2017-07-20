@@ -3,6 +3,8 @@ package io.github.devas.game;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import static org.testng.Assert.assertEquals;
+
 @Test
 public class BoardTests {
 
@@ -17,6 +19,16 @@ public class BoardTests {
         softAssert.assertEquals(board.getArea(), 15);
         board = new ConsoleBoard(5, 3);
         softAssert.assertEquals(board.getArea(), 15);
+        softAssert.assertAll();
+    }
+
+    public void testIsBoardFilledUp() {
+        Board board = new ConsoleBoard(3, 3);
+        softAssert.assertTrue(board.isFilledUpWithDefaultString());
+        board.setValueAt(1, 1, "X");
+        softAssert.assertFalse(board.isFilledUpWithDefaultString());
+        board.setValueAt(1, 1, "*");
+        softAssert.assertTrue(board.isFilledUpWithDefaultString());
         softAssert.assertAll();
     }
 
@@ -59,7 +71,7 @@ public class BoardTests {
     public void testFillingBoardWithAlphabet() {
         Board board = new ConsoleBoard(3, 3);
         board.setAllWithAlphabet();
-        softAssert.assertEquals(board.getValueAt(0, 0), "a");
+        softAssert.assertEquals(board.getValueAt(0, 0), "net");
         softAssert.assertEquals(board.getValueAt(2, 2), "i");
         softAssert.assertAll();
     }
@@ -67,17 +79,22 @@ public class BoardTests {
     public void testIsStringWithBoardRepresentationCorrect() {
         Board board = new ConsoleBoard(3, 3);
         softAssert.assertEquals(board.draw(), "* * * \n* * * \n* * * \n");
-        board = new ConsoleBoard(4, 3);
-        softAssert.assertEquals(board.draw(), "* * * \n* * * \n* * * \n* * * \n");
         board = new ConsoleBoard(3, 4);
+        softAssert.assertEquals(board.draw(), "* * * \n* * * \n* * * \n* * * \n");
+        board = new ConsoleBoard(4, 3);
         softAssert.assertEquals(board.draw(), "* * * * \n* * * * \n* * * * \n");
+        softAssert.assertAll();
     }
 
     public void testIsStringWithDiagonalsCorrect() {
         ConsoleBoard board = new ConsoleBoard(3, 3);
+        board.setAllWithAlphabet();
         String diagonals = board.drawDiagonals();
-        softAssert.assertTrue(diagonals.startsWith("*"));
-        softAssert.assertTrue(diagonals.endsWith("* \n"));
+        assertEquals(diagonals, "net \n" +
+                "d b \n" +
+                "g e c \n" +
+                "h f \n" +
+                "i \n");
     }
 
 }

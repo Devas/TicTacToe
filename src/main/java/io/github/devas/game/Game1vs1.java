@@ -6,6 +6,8 @@ abstract class Game1vs1 extends AbstractGame {
     private Player playerB;
     private Player currentPlayer;
 
+    Game1vs1() {}
+
     Game1vs1(Player playerA, Player playerB) {
         this.playerA = playerA;
         this.playerB = playerB;

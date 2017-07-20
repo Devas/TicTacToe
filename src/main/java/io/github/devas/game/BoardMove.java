@@ -1,7 +1,7 @@
 package io.github.devas.game;
 
 /**
- * Represents a single move on board.
+ * Represents net single move on board.
  * Additionally we can define here other activities connected with single move.
  */
 class BoardMove implements Move {

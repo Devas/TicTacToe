@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 @Test
 public class PlayerTests {
@@ -25,20 +24,23 @@ public class PlayerTests {
         softAssert.assertEquals(playerO.getGamesWon(), 0);
         playerO.incrementGamesWon();
         softAssert.assertEquals(playerO.getGamesWon(), 1);
+        softAssert.assertAll();
     }
 
     public void testCompareTwoPlayersByName() {
         softAssert.assertEquals(playerO.compareTo(playerX), 1);
         softAssert.assertEquals(playerX.compareTo(playerO), -1);
         softAssert.assertEquals(playerO.compareTo(playerO), 0);
+        softAssert.assertAll();
     }
 
     public void testAddingGettingResettingPlayersMoves() {
-        softAssert.assertEquals(playerO.getMoves(), Collections.emptyList());
+        softAssert.assertEquals(playerO.getMoves(), new ArrayList<Move>());
         playerO.addMove(new BoardMove(new Position2D(1, 1)));
         softAssert.assertEquals(playerO.getMoves(), new ArrayList<>().add(new Position2D(1, 1)));
         playerO.resetMoves();
-        softAssert.assertEquals(playerO.getMoves(), Collections.emptyList());
+        softAssert.assertEquals(playerO.getMoves(), new ArrayList<Move>());
+        softAssert.assertAll();
     }
 
     public void testArePlayersResultsCorrectlyComputed() {
@@ -51,6 +53,7 @@ public class PlayerTests {
         softAssert.assertEquals(playerO.getResult().getScore(), 5);
         playerO.getResult().resetScore();
         softAssert.assertEquals(playerO.getResult().getScore(), 0);
+        softAssert.assertAll();
     }
 
     public void testArePlayersCorrectlyComparedBasedOnResults() {
@@ -61,6 +64,7 @@ public class PlayerTests {
         softAssert.assertEquals(playerO.compareTo(playerX), 0);
         playerO.getResult().increaseScore(15);
         softAssert.assertEquals(playerO.compareTo(playerX), -1);
+        softAssert.assertAll();
     }
 
 }

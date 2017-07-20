@@ -7,16 +7,19 @@ import java.util.Properties;
 
 public class LocalizationManager implements Manager {
 
-    private final String resourcesPath = "src/main/resources/";
+    private final String resourcesPath;
     private final String localizationName;
-    private Properties localizationProperties = new Properties();
+    private final String localizationFileName;
+    private Properties localizationProperties;
 
     public LocalizationManager(String localizationName) {
-        this.localizationName = localizationName;
+        this.resourcesPath = "src/main/resources/";
+        this.localizationName = localizationName.toUpperCase();
+        this.localizationFileName = "localization" + this.localizationName + ".properties";
+        this.localizationProperties = new Properties();
     }
 
     public void loadLocalization() {
-        String localizationFileName = "localization" + localizationName.toUpperCase() + ".properties";
         try (FileInputStream fileInputStream = new FileInputStream(new File(resourcesPath + localizationFileName))) {
             localizationProperties.load(fileInputStream);
         } catch (IOException e) {

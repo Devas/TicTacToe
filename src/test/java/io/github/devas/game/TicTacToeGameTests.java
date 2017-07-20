@@ -1,7 +1,5 @@
 package io.github.devas.game;
 
-import io.github.devas.managers.ConfigurationManager;
-import io.github.devas.managers.LocalizationManager;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -11,8 +9,7 @@ import static org.testng.Assert.assertEquals;
 @Test
 public class TicTacToeGameTests {
 
-    private ConfigurationManager configManager;
-    private LocalizationManager localizationManager;
+    private TicTacToeGame game;
     private HumanPlayer playerO;
     private HumanPlayer playerX;
 
@@ -20,40 +17,41 @@ public class TicTacToeGameTests {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        configManager = new ConfigurationManager();
-        localizationManager = new LocalizationManager("ENG");
-        localizationManager.loadLocalization();
         playerO = new HumanPlayer("playerO", "o");
         playerX = new HumanPlayer("playerX", "x");
+        game = new TicTacToeGame();
+        game.setPlayerA(playerO);
+        game.setPlayerA(playerO);
+        game.setBoardSizeX(3);
+        game.setBoardSizeY(3);
+        game.setMarksToWin(3);
     }
 
     public void testIsGameInitiallyNotFinished() {
-        TicTacToeGame game = new TicTacToeGame(playerO, playerX, 3, 3, 3, configManager, localizationManager);
         assertEquals(game.isFinished(), false);
     }
 
     public void testIsGameFinished() {
-        TicTacToeGame game = new TicTacToeGame(playerO, playerX, 3, 3, 3, configManager, localizationManager);
         game.setFinished(true);
         assertEquals(game.isFinished(), true);
     }
 
     public void testIsCurrentPlayerCorrect() {
-        TicTacToeGame game = new TicTacToeGame(playerO, playerX, 3, 3, 3, configManager, localizationManager);
         game.setInitialTurnPlayerA();
         softAssert.assertEquals(game.getCurrentPlayer(), playerO);
         game.setInitialTurnPlayerB();
         softAssert.assertEquals(game.getCurrentPlayer(), playerX);
+        softAssert.assertAll();
     }
 
     public void testIsCurrentPlayerCorrectAfterSeveralTurns() {
-        TicTacToeGame game = new TicTacToeGame(playerO, playerX, 3, 3, 3, configManager, localizationManager);
         game.setInitialTurnPlayerA();
         softAssert.assertEquals(game.getCurrentPlayer(), playerO);
         game.nextTurn();
         softAssert.assertEquals(game.getCurrentPlayer(), playerX);
         game.nextTurn();
         softAssert.assertEquals(game.getCurrentPlayer(), playerO);
+        softAssert.assertAll();
     }
 
 }

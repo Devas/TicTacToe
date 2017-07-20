@@ -1,15 +1,23 @@
 package io.github.devas.game;
 
+import io.github.devas.managers.ConfigurationManager;
+import io.github.devas.managers.LocalizationManager;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
+
+import static org.testng.Assert.assertEquals;
 
 @Test
 public class ManagersTests {
 
-    private SoftAssert softAssert = new SoftAssert();
+    public void testLoadingLocalization() {
+        LocalizationManager localizationManager = new LocalizationManager("ENG");
+        localizationManager.loadLocalization();
+        assertEquals(localizationManager.get("turn"), "\n*** Turn ");
+    }
 
-    public void testCalculationOfBoardAreas() {
-
+    public void testLoadingConfigurationAndGettingPlayerName() {
+        ConfigurationManager configurationManager = new ConfigurationManager();
+        assertEquals(configurationManager.get("playera"), "John");
     }
 
 }

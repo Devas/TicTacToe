@@ -6,14 +6,14 @@ abstract class Board implements World2D {
     final int sixeY;
     private final int area;
     final String[][] board;
-    private final String FILL_STRING = "*";
+    private final String FILL_UP_STRING = "*";
 
     Board(int sixeX, int sixeY) {
         this.sixeX = sixeX;
         this.sixeY = sixeY;
         this.area = sixeX * sixeY;
         this.board = new String[sixeX][sixeY];
-        setAll(FILL_STRING);
+        setAll(FILL_UP_STRING);
     }
 
     @Override
@@ -51,6 +51,11 @@ abstract class Board implements World2D {
         board[position.getX()][position.getY()] = value;
     }
 
+    /**
+     * Fills up the board with specified String.
+     *
+     * @param value String used to fill up the board
+     */
     void setAll(String value) {
         for (int y = 0; y < sixeY; y++) {
             for (int x = 0; x < sixeX; x++) {
@@ -59,8 +64,25 @@ abstract class Board implements World2D {
         }
     }
 
+    /**
+     * Fills up the board with default filling up String.
+     */
     void reset() {
-        setAll(FILL_STRING);
+        setAll(FILL_UP_STRING);
+    }
+
+    /**
+     * Returns whether board contains any String different from the default filling up String.
+     */
+    boolean isFilledUpWithDefaultString() {
+        for (int y = 0; y < sixeY; y++) {
+            for (int x = 0; x < sixeX; x++) {
+                if (!board[x][y].equals(FILL_UP_STRING)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
